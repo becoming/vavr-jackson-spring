@@ -1,42 +1,27 @@
-[![Build Status](https://travis-ci.com/becoming-tech/common.svg?branch=master)](https://travis-ci.com/becoming-tech/common)
-[ ![Download](https://api.bintray.com/packages/becoming-tech/maven/common/images/download.svg) ](https://bintray.com/becoming-tech/maven/common/_latestVersion)
-# common
-Contains a list of commonly used constants and exceptions.
+# vavr-jackson-spring
 
-> Relies on Java 11 to force you to jump out of the dark ages.
+This lib allows you to return `Try` and `Option` classes via `Spring Boot Controllers`.
 
-Constants :
-- HttpHeader
-- HttpMethod
-- HttpStatusCode
-- HttpStatusName
-- DateTime
-  - "dd-MM-yyyy HH:mm:ss"
-  - "dd-MM-yyyy"
-  - UTC
+It is enabled as a `Jackson` module.
 
-Enums : 
-- Days
-- HoursWithPM
-- Months
-- Periodicity
-- TimesOfDay
+```java
+@GetMapping("{id}")
+public Try<RobotView> getRobot(@PathVariable Long id) {
+    return service.findById(id);
+}
+```
 
-Http exception body :
-- HttpExceptionBody, useful when creating custom `@ExceptionHandler` with Spring. 
-
-Exceptions :
-- AbstractRuntimeException
-- BadRequestException
-- NotFoundException
-- NotImplementedException
-- UnauthenticatedException
-- UnauthorizedException
+```java
+@GetMapping("{id}")
+public Option<RobotView> getRobot(@PathVariable Long id) {
+    return service.findById(id);
+}
+```
 
 ```xml
 <dependency>
     <groupId>tech.becoming</groupId>
-    <artifactId>common</artifactId>
-    <version>1.1.0</version>
+    <artifactId>vavr-jackson-spring</artifactId>
+    <version>0.0.1</version>
 </dependency>
 ```
