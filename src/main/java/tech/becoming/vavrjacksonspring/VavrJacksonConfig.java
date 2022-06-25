@@ -1,16 +1,15 @@
 package tech.becoming.vavrjacksonspring;
 
-import com.fasterxml.jackson.databind.Module;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@EnableConfigurationProperties
 @Configuration
-public class MainConfig {
+public class VavrJacksonConfig {
 
     @Bean
-    public Module getVavrJacksonModule() {
+    @ConditionalOnMissingBean
+    public VavrJacksonModule getVavrJacksonModule() {
         return new VavrJacksonModule();
     }
 
