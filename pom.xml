@@ -11,7 +11,7 @@
 
 	<groupId>tech.becoming</groupId>
 	<artifactId>vavr-jackson-spring</artifactId>
-	<version>270.1</version>
+	<version>270.2-SNAPSHOT</version>
 	<name>Becoming.tech's Vavr Jackson module for Spring</name>
 	<description>A lib that configures a module that will handle some Vavr types for Jackson.</description>
 	<url>https://github.com/becoming/vavr-jackson-spring</url>
@@ -56,7 +56,7 @@
 		<connection>scm:git:ssh://git@github.com/becoming/vavr-jackson-spring.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/becoming/vavr-jackson-spring.git</developerConnection>
 		<url>https://github.com/becoming/vavr-jackson-spring</url>
-		<tag>vavr-jackson-spring-270.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
