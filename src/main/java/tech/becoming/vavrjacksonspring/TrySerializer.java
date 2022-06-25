@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import io.vavr.control.Try;
-import lombok.SneakyThrows;
 
 import java.io.IOException;
 
@@ -18,9 +17,13 @@ public class TrySerializer extends StdSerializer<Try<?>> {
     @Override
     public void serialize(Try<?> value,
                           JsonGenerator jgen,
-                          SerializerProvider provider) {
+                          SerializerProvider provider) throws IOException {
 
-        value.andThenTry(jgen::writeObject).get();
+        if(value.isFailure()) {
+            throw new IOException(value.getCause());
+        }
+
+        jgen.writeObject(value.get());
     }
 
 }
